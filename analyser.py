@@ -30,10 +30,7 @@ SCANNER_PATTERN = re.compile(r"Nmap|sqlmap", re.IGNORECASE)
 
 
 def analyze_log():
-    """
-    Reads the log file, analyzes it for threats, 
-    and writes a report.
-    """
+
     print(f"Starting analysis of {LOG_FILE}...")
     
     failed_logins = defaultdict(int)
